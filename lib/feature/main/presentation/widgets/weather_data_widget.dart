@@ -1,9 +1,11 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_icons/weather_icons.dart';
 import 'package:weather_test_app/common/theme/app_colors.dart';
 import 'package:weather_test_app/feature/main/data/model/weather_forecast_model.dart';
+import 'package:weather_test_app/feature/main/presentation/bloc/city_search/city_search_bloc.dart';
 import 'package:weather_test_app/feature/main/presentation/widgets/daily_weather_container.dart';
 
 class WeatherDataWidget extends StatelessWidget {

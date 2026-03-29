@@ -21,6 +21,7 @@ mixin _$CitySearchEvent {
     required TResult Function(String name) searchCityByName,
     required TResult Function(Place place) selectCity,
     required TResult Function() fetchGeolocation,
+    required TResult Function() clearSearchList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +29,7 @@ mixin _$CitySearchEvent {
     TResult? Function(String name)? searchCityByName,
     TResult? Function(Place place)? selectCity,
     TResult? Function()? fetchGeolocation,
+    TResult? Function()? clearSearchList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +37,7 @@ mixin _$CitySearchEvent {
     TResult Function(String name)? searchCityByName,
     TResult Function(Place place)? selectCity,
     TResult Function()? fetchGeolocation,
+    TResult Function()? clearSearchList,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +46,7 @@ mixin _$CitySearchEvent {
     required TResult Function(_SearchCityByName value) searchCityByName,
     required TResult Function(_SelectCity value) selectCity,
     required TResult Function(_FetchGeolocation value) fetchGeolocation,
+    required TResult Function(_ClearSearchList value) clearSearchList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +54,7 @@ mixin _$CitySearchEvent {
     TResult? Function(_SearchCityByName value)? searchCityByName,
     TResult? Function(_SelectCity value)? selectCity,
     TResult? Function(_FetchGeolocation value)? fetchGeolocation,
+    TResult? Function(_ClearSearchList value)? clearSearchList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +62,7 @@ mixin _$CitySearchEvent {
     TResult Function(_SearchCityByName value)? searchCityByName,
     TResult Function(_SelectCity value)? selectCity,
     TResult Function(_FetchGeolocation value)? fetchGeolocation,
+    TResult Function(_ClearSearchList value)? clearSearchList,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -155,6 +161,7 @@ class _$SearchCityByNameImpl implements _SearchCityByName {
     required TResult Function(String name) searchCityByName,
     required TResult Function(Place place) selectCity,
     required TResult Function() fetchGeolocation,
+    required TResult Function() clearSearchList,
   }) {
     return searchCityByName(name);
   }
@@ -165,6 +172,7 @@ class _$SearchCityByNameImpl implements _SearchCityByName {
     TResult? Function(String name)? searchCityByName,
     TResult? Function(Place place)? selectCity,
     TResult? Function()? fetchGeolocation,
+    TResult? Function()? clearSearchList,
   }) {
     return searchCityByName?.call(name);
   }
@@ -175,6 +183,7 @@ class _$SearchCityByNameImpl implements _SearchCityByName {
     TResult Function(String name)? searchCityByName,
     TResult Function(Place place)? selectCity,
     TResult Function()? fetchGeolocation,
+    TResult Function()? clearSearchList,
     required TResult orElse(),
   }) {
     if (searchCityByName != null) {
@@ -189,6 +198,7 @@ class _$SearchCityByNameImpl implements _SearchCityByName {
     required TResult Function(_SearchCityByName value) searchCityByName,
     required TResult Function(_SelectCity value) selectCity,
     required TResult Function(_FetchGeolocation value) fetchGeolocation,
+    required TResult Function(_ClearSearchList value) clearSearchList,
   }) {
     return searchCityByName(this);
   }
@@ -199,6 +209,7 @@ class _$SearchCityByNameImpl implements _SearchCityByName {
     TResult? Function(_SearchCityByName value)? searchCityByName,
     TResult? Function(_SelectCity value)? selectCity,
     TResult? Function(_FetchGeolocation value)? fetchGeolocation,
+    TResult? Function(_ClearSearchList value)? clearSearchList,
   }) {
     return searchCityByName?.call(this);
   }
@@ -209,6 +220,7 @@ class _$SearchCityByNameImpl implements _SearchCityByName {
     TResult Function(_SearchCityByName value)? searchCityByName,
     TResult Function(_SelectCity value)? selectCity,
     TResult Function(_FetchGeolocation value)? fetchGeolocation,
+    TResult Function(_ClearSearchList value)? clearSearchList,
     required TResult orElse(),
   }) {
     if (searchCityByName != null) {
@@ -302,6 +314,7 @@ class _$SelectCityImpl implements _SelectCity {
     required TResult Function(String name) searchCityByName,
     required TResult Function(Place place) selectCity,
     required TResult Function() fetchGeolocation,
+    required TResult Function() clearSearchList,
   }) {
     return selectCity(place);
   }
@@ -312,6 +325,7 @@ class _$SelectCityImpl implements _SelectCity {
     TResult? Function(String name)? searchCityByName,
     TResult? Function(Place place)? selectCity,
     TResult? Function()? fetchGeolocation,
+    TResult? Function()? clearSearchList,
   }) {
     return selectCity?.call(place);
   }
@@ -322,6 +336,7 @@ class _$SelectCityImpl implements _SelectCity {
     TResult Function(String name)? searchCityByName,
     TResult Function(Place place)? selectCity,
     TResult Function()? fetchGeolocation,
+    TResult Function()? clearSearchList,
     required TResult orElse(),
   }) {
     if (selectCity != null) {
@@ -336,6 +351,7 @@ class _$SelectCityImpl implements _SelectCity {
     required TResult Function(_SearchCityByName value) searchCityByName,
     required TResult Function(_SelectCity value) selectCity,
     required TResult Function(_FetchGeolocation value) fetchGeolocation,
+    required TResult Function(_ClearSearchList value) clearSearchList,
   }) {
     return selectCity(this);
   }
@@ -346,6 +362,7 @@ class _$SelectCityImpl implements _SelectCity {
     TResult? Function(_SearchCityByName value)? searchCityByName,
     TResult? Function(_SelectCity value)? selectCity,
     TResult? Function(_FetchGeolocation value)? fetchGeolocation,
+    TResult? Function(_ClearSearchList value)? clearSearchList,
   }) {
     return selectCity?.call(this);
   }
@@ -356,6 +373,7 @@ class _$SelectCityImpl implements _SelectCity {
     TResult Function(_SearchCityByName value)? searchCityByName,
     TResult Function(_SelectCity value)? selectCity,
     TResult Function(_FetchGeolocation value)? fetchGeolocation,
+    TResult Function(_ClearSearchList value)? clearSearchList,
     required TResult orElse(),
   }) {
     if (selectCity != null) {
@@ -421,6 +439,7 @@ class _$FetchGeolocationImpl implements _FetchGeolocation {
     required TResult Function(String name) searchCityByName,
     required TResult Function(Place place) selectCity,
     required TResult Function() fetchGeolocation,
+    required TResult Function() clearSearchList,
   }) {
     return fetchGeolocation();
   }
@@ -431,6 +450,7 @@ class _$FetchGeolocationImpl implements _FetchGeolocation {
     TResult? Function(String name)? searchCityByName,
     TResult? Function(Place place)? selectCity,
     TResult? Function()? fetchGeolocation,
+    TResult? Function()? clearSearchList,
   }) {
     return fetchGeolocation?.call();
   }
@@ -441,6 +461,7 @@ class _$FetchGeolocationImpl implements _FetchGeolocation {
     TResult Function(String name)? searchCityByName,
     TResult Function(Place place)? selectCity,
     TResult Function()? fetchGeolocation,
+    TResult Function()? clearSearchList,
     required TResult orElse(),
   }) {
     if (fetchGeolocation != null) {
@@ -455,6 +476,7 @@ class _$FetchGeolocationImpl implements _FetchGeolocation {
     required TResult Function(_SearchCityByName value) searchCityByName,
     required TResult Function(_SelectCity value) selectCity,
     required TResult Function(_FetchGeolocation value) fetchGeolocation,
+    required TResult Function(_ClearSearchList value) clearSearchList,
   }) {
     return fetchGeolocation(this);
   }
@@ -465,6 +487,7 @@ class _$FetchGeolocationImpl implements _FetchGeolocation {
     TResult? Function(_SearchCityByName value)? searchCityByName,
     TResult? Function(_SelectCity value)? selectCity,
     TResult? Function(_FetchGeolocation value)? fetchGeolocation,
+    TResult? Function(_ClearSearchList value)? clearSearchList,
   }) {
     return fetchGeolocation?.call(this);
   }
@@ -475,6 +498,7 @@ class _$FetchGeolocationImpl implements _FetchGeolocation {
     TResult Function(_SearchCityByName value)? searchCityByName,
     TResult Function(_SelectCity value)? selectCity,
     TResult Function(_FetchGeolocation value)? fetchGeolocation,
+    TResult Function(_ClearSearchList value)? clearSearchList,
     required TResult orElse(),
   }) {
     if (fetchGeolocation != null) {
@@ -486,6 +510,123 @@ class _$FetchGeolocationImpl implements _FetchGeolocation {
 
 abstract class _FetchGeolocation implements CitySearchEvent {
   const factory _FetchGeolocation() = _$FetchGeolocationImpl;
+}
+
+/// @nodoc
+abstract class _$$ClearSearchListImplCopyWith<$Res> {
+  factory _$$ClearSearchListImplCopyWith(_$ClearSearchListImpl value,
+          $Res Function(_$ClearSearchListImpl) then) =
+      __$$ClearSearchListImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ClearSearchListImplCopyWithImpl<$Res>
+    extends _$CitySearchEventCopyWithImpl<$Res, _$ClearSearchListImpl>
+    implements _$$ClearSearchListImplCopyWith<$Res> {
+  __$$ClearSearchListImplCopyWithImpl(
+      _$ClearSearchListImpl _value, $Res Function(_$ClearSearchListImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of CitySearchEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$ClearSearchListImpl implements _ClearSearchList {
+  const _$ClearSearchListImpl();
+
+  @override
+  String toString() {
+    return 'CitySearchEvent.clearSearchList()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ClearSearchListImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String name) searchCityByName,
+    required TResult Function(Place place) selectCity,
+    required TResult Function() fetchGeolocation,
+    required TResult Function() clearSearchList,
+  }) {
+    return clearSearchList();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? searchCityByName,
+    TResult? Function(Place place)? selectCity,
+    TResult? Function()? fetchGeolocation,
+    TResult? Function()? clearSearchList,
+  }) {
+    return clearSearchList?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String name)? searchCityByName,
+    TResult Function(Place place)? selectCity,
+    TResult Function()? fetchGeolocation,
+    TResult Function()? clearSearchList,
+    required TResult orElse(),
+  }) {
+    if (clearSearchList != null) {
+      return clearSearchList();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SearchCityByName value) searchCityByName,
+    required TResult Function(_SelectCity value) selectCity,
+    required TResult Function(_FetchGeolocation value) fetchGeolocation,
+    required TResult Function(_ClearSearchList value) clearSearchList,
+  }) {
+    return clearSearchList(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SearchCityByName value)? searchCityByName,
+    TResult? Function(_SelectCity value)? selectCity,
+    TResult? Function(_FetchGeolocation value)? fetchGeolocation,
+    TResult? Function(_ClearSearchList value)? clearSearchList,
+  }) {
+    return clearSearchList?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SearchCityByName value)? searchCityByName,
+    TResult Function(_SelectCity value)? selectCity,
+    TResult Function(_FetchGeolocation value)? fetchGeolocation,
+    TResult Function(_ClearSearchList value)? clearSearchList,
+    required TResult orElse(),
+  }) {
+    if (clearSearchList != null) {
+      return clearSearchList(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ClearSearchList implements CitySearchEvent {
+  const factory _ClearSearchList() = _$ClearSearchListImpl;
 }
 
 /// @nodoc

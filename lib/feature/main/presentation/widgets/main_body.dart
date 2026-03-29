@@ -40,58 +40,71 @@ class _MainBodyState extends State<MainBody> {
       ],
       child: SafeArea(
         bottom: false,
-        child: Padding(
-          padding: const EdgeInsets.only(top: 18, left: 14, right: 14),
-          child: Column(
-            children: [
-              Padding(padding: const EdgeInsets.symmetric(vertical: 20), child: CompositedSearchCityTextField()),
-                BlocConsumer<CitySearchBloc, CitySearchState>(
-                    builder: (context, state) {
-                      return state.map(
-                          initial: (s) => LoadingState(),
-                          loading: (s) => LoadingState(),
-                          success: (s) => Text(s.cityName, style: cityTextStyle,),
-                          loadedSearchList: (s) => Text(s.cityName, style: cityTextStyle,),
-                          failure: (s) => Text(s.cityName, style: cityTextStyle),
-                      );
-                    },
-                    listener: (context, state){
-                      state.maybeMap(orElse: () {},
-                          failure: (s) {
-                            ErrorSnackBar.show(context: context, message: s.message);
+        child: Builder(
+          builder: (context) {
+            return GestureDetector(
+              behavior: HitTestBehavior.translucent,
+              onTap: () {
+                FocusScope.of(context).unfocus();
+                context.read<CitySearchBloc>().add(CitySearchEvent.clearSearchList());
+              },
+              child: Padding(
+                padding: const EdgeInsets.only(top: 18, left: 14, right: 14),
+                child: GestureDetector(
+                  child: Column(
+                    children: [
+                      Padding(padding: const EdgeInsets.symmetric(vertical: 20), child: CompositedSearchCityTextField()),
+                        BlocConsumer<CitySearchBloc, CitySearchState>(
+                            builder: (context, state) {
+                              return state.map(
+                                  initial: (s) => LoadingState(),
+                                  loading: (s) => LoadingState(),
+                                  success: (s) => Text(s.cityName, style: cityTextStyle,),
+                                  loadedSearchList: (s) => Text(s.cityName, style: cityTextStyle,),
+                                  failure: (s) => Text(s.cityName, style: cityTextStyle),
+                              );
+                            },
+                            listener: (context, state){
+                              state.maybeMap(orElse: () {},
+                                  failure: (s) {
+                                    ErrorSnackBar.show(context: context, message: s.message);
+                                  },
+                                  success: (s) {
+                                context.read<WeatherBloc>().add(WeatherEvent.fetchWeatherData(coordinates: Coordinates(latitude: s.place.latitude, longitude: s.place.longitude)));
+                              });
+                            },
+                          listenWhen: (prev, current){
+                              bool isPrevStateLoading = prev.maybeMap(orElse: () => false, loading: (s) => true);
+                              bool isCurrentStateSuccess = current.maybeMap(orElse: () => false, success: (s) => true);
+                              bool isCurrentStateFailure = current.maybeMap(orElse: () => false, failure: (s) => true);
+                              return (isPrevStateLoading && isCurrentStateSuccess) || isCurrentStateFailure;
                           },
-                          success: (s) {
-                        context.read<WeatherBloc>().add(WeatherEvent.fetchWeatherData(coordinates: Coordinates(latitude: s.place.latitude, longitude: s.place.longitude)));
-                      });
-                    },
-                  listenWhen: (prev, current){
-                      bool isPrevStateLoading = prev.maybeMap(orElse: () => false, loading: (s) => true);
-                      bool isCurrentStateSuccess = current.maybeMap(orElse: () => false, success: (s) => true);
-                      bool isCurrentStateFailure = current.maybeMap(orElse: () => false, failure: (s) => true);
-                      return (isPrevStateLoading && isCurrentStateSuccess) || isCurrentStateFailure;
-                  },
+                        ),
+                      const SizedBox(height: 16,),
+                      BlocConsumer<WeatherBloc, WeatherState>(
+                        listener: (context, state){
+                          state.maybeMap(
+                              failure: (s) {
+                                ErrorSnackBar.show(context: context, message: s.message);
+                              },
+                              orElse: (){}
+                          );
+                        },
+                          builder: (context, state){
+                            return state.map(
+                                initial: (s) => ExpandedLoadingState(),
+                                loading: (s) => ExpandedLoadingState(),
+                                success: (s) => WeatherDataWidget(weatherForecast: s.weatherData),
+                                failure: (s) => s.oldWeatherData != null ? WeatherDataWidget(weatherForecast: s.oldWeatherData!) : ExpandedLoadingState(),
+                            );
+                          }
+                      )
+                    ],
+                  ),
                 ),
-              const SizedBox(height: 16,),
-              BlocConsumer<WeatherBloc, WeatherState>(
-                listener: (context, state){
-                  state.maybeMap(
-                      failure: (s) {
-                        ErrorSnackBar.show(context: context, message: s.message);
-                      },
-                      orElse: (){}
-                  );
-                },
-                  builder: (context, state){
-                    return state.map(
-                        initial: (s) => ExpandedLoadingState(),
-                        loading: (s) => ExpandedLoadingState(),
-                        success: (s) => WeatherDataWidget(weatherForecast: s.weatherData),
-                        failure: (s) => s.oldWeatherData != null ? WeatherDataWidget(weatherForecast: s.oldWeatherData!) : ExpandedLoadingState(),
-                    );
-                  }
-              )
-            ],
-          ),
+              ),
+            );
+          }
         ),
       ),
     );

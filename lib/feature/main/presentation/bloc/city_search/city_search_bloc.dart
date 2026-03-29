@@ -32,6 +32,7 @@ class CitySearchBloc extends Bloc<CitySearchEvent, CitySearchState> {
 
     on<_FetchGeolocation>(_onFetchGeolocation);
     on<_SelectCity>(_onSelectCity);
+    on<_ClearSearchList>(_onClearSearchList);
   }
 
   final FetchCitiesByNameUseCase _fetchCitiesByNameUseCase;
@@ -71,4 +72,12 @@ class CitySearchBloc extends Bloc<CitySearchEvent, CitySearchState> {
     emit(CitySearchState.loading(place: state.currentPlace));
     emit(CitySearchState.success(place: event.place));
   }
+
+  _onClearSearchList(_ClearSearchList event, Emitter<CitySearchState> emit) async{
+    state.maybeMap(orElse: (){}, loadedSearchList: (s) {
+      emit(CitySearchState.loadedSearchList(place: state.currentPlace, searchList: []));
+    });
+  }
+
+
 }

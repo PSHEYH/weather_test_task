@@ -44,6 +44,7 @@ class _CompositedSearchCityTextFieldState extends State<CompositedSearchCityText
                     title: Text(city.displayName),
                     onTap: () {
                       _controller.clear();
+                      FocusScope.of(context).unfocus();
                       context.read<CitySearchBloc>().add(
                         CitySearchEvent.selectCity(place: city)
                       );

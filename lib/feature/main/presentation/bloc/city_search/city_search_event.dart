@@ -5,4 +5,5 @@ class CitySearchEvent with _$CitySearchEvent {
   const factory CitySearchEvent.searchCityByName({required String name}) = _SearchCityByName;
   const factory CitySearchEvent.selectCity({required Place place}) = _SelectCity;
   const factory CitySearchEvent.fetchGeolocation() = _FetchGeolocation;
+  const factory CitySearchEvent.clearSearchList() = _ClearSearchList;
 }

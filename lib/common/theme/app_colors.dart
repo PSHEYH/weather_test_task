@@ -23,4 +23,5 @@ abstract class AppColors{
   static const Color borderColor = Color(0xFFFFFFFF);
   static const Color hintTextColor = Color(0x7CFFFFFF);
   static const Color iconColor = Color(0xFFFFFFFF);
+  static const Color closeButtonColor = Color(0xFF878585);
 }

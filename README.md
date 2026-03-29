@@ -1,7 +1,5 @@
 # weather_test_app
 
-# 🌦 Weather App
-
 A Flutter application that allows users to search for cities and view weather forecasts.
 
 
